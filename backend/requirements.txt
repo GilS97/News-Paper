@@ -1,0 +1,33 @@
+# Django Core
+Django==5.0.1
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+
+# Authentication
+djangorestframework-simplejwt==5.3.1
+djoser==2.2.2
+
+# Database
+psycopg2-binary==2.9.9
+
+# Task Queue
+celery==5.3.6
+redis==5.0.1
+
+# Web Scraping
+beautifulsoup4==4.12.3
+requests==2.31.0
+lxml==5.1.0
+selenium==4.17.2
+
+# Email
+django-anymail==10.3
+
+# Environment
+python-dotenv==1.0.1
+
+# Utilities
+python-dateutil==2.8.2
+
+# Development
+django-debug-toolbar==4.2.0
