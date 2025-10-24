@@ -23,7 +23,9 @@ COPY . /app/
 # Create staticfiles directory
 RUN mkdir -p /app/staticfiles
 
-# Run migrations and collect static files
-CMD python manage.py migrate && \
-    python manage.py collectstatic --noinput && \
-    gunicorn config.wsgi:application --bind 0.0.0.0:8000
+# Copy and set permissions for entrypoint
+COPY entrypoint.sh /app/
+RUN chmod +x /app/entrypoint.sh
+
+# Set entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
