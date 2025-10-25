@@ -1,21 +1,22 @@
-version: '3.8'
-
 services:
   redis:
     image: redis:7-alpine
+    container_name: newspaper-redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: >
-      sh -c "python manage.py migrate &&
-             python manage.py collectstatic --noinput &&
-             gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    container_name: newspaper-backend
     volumes:
       - ./backend:/app
       - static_volume:/app/staticfiles
@@ -23,54 +24,66 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - SECRET_KEY=your-secret-key-change-in-production
+      - SECRET_KEY=django-insecure-dev-key-change-in-production
       - DEBUG=True
       - ALLOWED_HOSTS=localhost,127.0.0.1,backend
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
 
-  celery:
+  celery-worker:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: celery -A config worker -l info
+    container_name: newspaper-celery-worker
+    command: celery -A config worker -l info --concurrency=2
     volumes:
       - ./backend:/app
     environment:
-      - SECRET_KEY=your-secret-key-change-in-production
+      - SECRET_KEY=django-insecure-dev-key-change-in-production
       - DEBUG=True
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     depends_on:
-      - redis
-      - backend
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    restart: unless-stopped
 
   celery-beat:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    container_name: newspaper-celery-beat
     command: celery -A config beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
     volumes:
       - ./backend:/app
     environment:
-      - SECRET_KEY=your-secret-key-change-in-production
+      - SECRET_KEY=django-insecure-dev-key-change-in-production
       - DEBUG=True
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     depends_on:
-      - redis
-      - backend
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    restart: unless-stopped
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    container_name: newspaper-frontend
     ports:
       - "80:80"
     depends_on:
       - backend
+    restart: unless-stopped
 
 volumes:
   redis_data:

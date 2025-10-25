@@ -1,0 +1,42 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# Environment
+.env
+venv/
+env/
+ENV/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/

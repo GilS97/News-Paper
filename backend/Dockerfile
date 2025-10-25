@@ -14,16 +14,19 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-COPY requirements.txt /app/
+COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copy project
-COPY . /app/
+COPY . .
 
-# Create staticfiles directory
-RUN mkdir -p /app/staticfiles
+# Create necessary directories
+RUN mkdir -p /app/staticfiles /app/media
 
-# Run migrations and collect static files
-CMD python manage.py migrate && \
-    python manage.py collectstatic --noinput && \
-    gunicorn config.wsgi:application --bind 0.0.0.0:8000
+# Copy entrypoint script and make it executable
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+EXPOSE 8000
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
