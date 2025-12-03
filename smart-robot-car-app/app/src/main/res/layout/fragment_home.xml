@@ -1,242 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    android:padding="16dp">
+    android:padding="12dp">
 
-    <!-- Header with Title and Bluetooth Button -->
+    <!-- Header -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.Title"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/bluetoothIcon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:padding="8dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="6dp"
         android:src="@android:drawable/stat_sys_data_bluetooth"
         android:tint="@color/bluetooth_disconnected"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Connection Status -->
     <TextView
         android:id="@+id/connectionStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/bluetooth_not_connected"
         android:textColor="@color/text_secondary"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText" />
 
-    <!-- Mode Cards Grid -->
+    <!-- Grid Container -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/connectionStatusText">
 
-        <!-- Row 1 -->
+        <!-- Guideline for 3 columns -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.67" />
+
+        <!-- Guideline for 2 rows -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <!-- Row 1, Column 1 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardRemoteControl"
-            style="@style/ModeCard"
-            app:layout_constraintBottom_toTopOf="@id/cardUltrasound"
-            app:layout_constraintEnd_toStartOf="@id/cardLineTracking"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline50"
+            app:layout_constraintEnd_toStartOf="@id/guideline33"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_menu_preferences"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/remote_control"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Row 1, Column 2 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardLineTracking"
-            style="@style/ModeCard"
-            app:layout_constraintBottom_toTopOf="@id/cardIrRemote"
-            app:layout_constraintEnd_toStartOf="@id/cardAvoidObstacles"
-            app:layout_constraintStart_toEndOf="@id/cardRemoteControl"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline50"
+            app:layout_constraintEnd_toStartOf="@id/guideline66"
+            app:layout_constraintStart_toEndOf="@id/guideline33"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_menu_directions"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/line_tracking"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Row 1, Column 3 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAvoidObstacles"
-            style="@style/ModeCard"
-            app:layout_constraintBottom_toTopOf="@id/cardLightSeeking"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline50"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cardLineTracking"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintStart_toEndOf="@id/guideline66"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_dialog_alert"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
+                    android:maxLines="2"
                     android:text="@string/avoid_obstacles"
                     android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Row 2 -->
+        <!-- Row 2, Column 1 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardUltrasound"
-            style="@style/ModeCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cardIrRemote"
+            app:layout_constraintEnd_toStartOf="@id/guideline33"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardRemoteControl"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintTop_toBottomOf="@id/guideline50">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_menu_mylocation"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/follow_me"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Row 2, Column 2 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardIrRemote"
-            style="@style/ModeCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cardLightSeeking"
-            app:layout_constraintStart_toEndOf="@id/cardUltrasound"
-            app:layout_constraintTop_toBottomOf="@id/cardLineTracking"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintEnd_toStartOf="@id/guideline66"
+            app:layout_constraintStart_toEndOf="@id/guideline33"
+            app:layout_constraintTop_toBottomOf="@id/guideline50">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_menu_send"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/ir_remote"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Row 2, Column 3 -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardLightSeeking"
-            style="@style/ModeCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            app:cardBackgroundColor="@color/card_blue"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cardIrRemote"
-            app:layout_constraintTop_toBottomOf="@id/cardAvoidObstacles"
-            app:layout_constraintWidth_percent="0.3">
+            app:layout_constraintStart_toEndOf="@id/guideline66"
+            app:layout_constraintTop_toBottomOf="@id/guideline50">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
                     android:src="@android:drawable/ic_menu_day"
                     android:tint="@color/accent_yellow" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/light_seeking"
-                    android:textAppearance="@style/TextAppearance.CardTitle" />
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
