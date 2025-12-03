@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Smart Robot Car</string>
+
+    <!-- Home Screen -->
+    <string name="remote_control">Remote Control</string>
+    <string name="line_tracking">Line Tracking</string>
+    <string name="avoid_obstacles">Ultrasound\nAvoid Obstacles</string>
+    <string name="ir_remote">IR Remote</string>
+    <string name="light_seeking">Light Seeking</string>
+    <string name="follow_me">Follow Me</string>
+
+    <!-- Bluetooth -->
+    <string name="bluetooth_not_connected">bluetooth is not connected</string>
+    <string name="bluetooth_connected">Bluetooth Connected</string>
+    <string name="connect_to_robot">Connect to Robot</string>
+    <string name="disconnect">Disconnect</string>
+
+    <!-- Remote Control -->
+    <string name="gravity_sensor">Gravity Sensor</string>
+    <string name="speed">Speed</string>
+
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="stop">Stop</string>
+    <string name="mode_active">Mode Active</string>
+    <string name="tap_to_stop">Tap to stop</string>
+</resources>

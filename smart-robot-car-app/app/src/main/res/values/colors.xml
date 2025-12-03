@@ -1,0 +1,42 @@
+<resources>
+    <!-- Primary Colors - Modern Blue -->
+    <color name="primary_blue">#1E3A5F</color>
+    <color name="primary_blue_dark">#0F1F3A</color>
+    <color name="primary_blue_light">#2E5A8F</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_orange">#FF9F43</color>
+    <color name="accent_yellow">#FFC107</color>
+    <color name="accent_green">#00E676</color>
+    <color name="accent_red">#FF5252</color>
+
+    <!-- Background -->
+    <color name="background_dark">#0F1F3A</color>
+    <color name="background_card">#1E3A5F</color>
+    <color name="background_card_light">#2E5A8F</color>
+
+    <!-- Card Colors -->
+    <color name="card_blue">#4A90E2</color>
+    <color name="card_blue_dark">#357ABD</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0BEC5</color>
+    <color name="text_accent">#FFC107</color>
+
+    <!-- Status Colors -->
+    <color name="bluetooth_connected">#00E676</color>
+    <color name="bluetooth_disconnected">#FF5252</color>
+
+    <!-- Transparent Overlays -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+
+    <!-- Material Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#1E3A5F</color>
+    <color name="gradient_end">#0F1F3A</color>
+</resources>

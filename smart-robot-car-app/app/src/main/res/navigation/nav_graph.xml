@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.robotcar.smart.ui.home.HomeFragment"
+        android:label="Smart Robot Car">
+        <action
+            android:id="@+id/action_home_to_remoteControl"
+            app:destination="@id/remoteControlFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_lineTracking"
+            app:destination="@id/lineTrackingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_avoidObstacles"
+            app:destination="@id/avoidObstaclesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_irRemote"
+            app:destination="@id/irRemoteFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_lightSeeking"
+            app:destination="@id/lightSeekingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_home_to_followMe"
+            app:destination="@id/followMeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/remoteControlFragment"
+        android:name="com.robotcar.smart.ui.remotecontrol.RemoteControlFragment"
+        android:label="Remote Control" />
+
+    <fragment
+        android:id="@+id/lineTrackingFragment"
+        android:name="com.robotcar.smart.ui.linetracking.LineTrackingFragment"
+        android:label="Line Tracking" />
+
+    <fragment
+        android:id="@+id/avoidObstaclesFragment"
+        android:name="com.robotcar.smart.ui.avoidobstacles.AvoidObstaclesFragment"
+        android:label="Avoid Obstacles" />
+
+    <fragment
+        android:id="@+id/irRemoteFragment"
+        android:name="com.robotcar.smart.ui.irremote.IRRemoteFragment"
+        android:label="IR Remote" />
+
+    <fragment
+        android:id="@+id/lightSeekingFragment"
+        android:name="com.robotcar.smart.ui.lightseeking.LightSeekingFragment"
+        android:label="Light Seeking" />
+
+    <fragment
+        android:id="@+id/followMeFragment"
+        android:name="com.robotcar.smart.ui.followme.FollowMeFragment"
+        android:label="Follow Me" />
+
+</navigation>

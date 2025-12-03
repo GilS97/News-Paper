@@ -1,0 +1,78 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.SmartRobotCar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/primary_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/accent_orange</item>
+        <item name="colorSecondaryVariant">@color/accent_yellow</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/primary_blue_dark</item>
+        <item name="android:navigationBarColor">@color/primary_blue_dark</item>
+
+        <!-- Background color -->
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="backgroundColor">@color/background_dark</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- Button style -->
+        <item name="materialButtonStyle">@style/Widget.SmartRobotCar.Button</item>
+        <item name="cardViewStyle">@style/Widget.SmartRobotCar.CardView</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="Widget.SmartRobotCar.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/accent_orange</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:paddingHorizontal">32dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+    <!-- CardView Style -->
+    <style name="Widget.SmartRobotCar.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_blue</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Mode Card Style -->
+    <style name="ModeCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">12dp</item>
+        <item name="rippleColor">@color/overlay_light</item>
+        <item name="cardBackgroundColor">@color/card_blue</item>
+    </style>
+
+    <!-- Title Text Style -->
+    <style name="TextAppearance.Title" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Card Title Text Style -->
+    <style name="TextAppearance.CardTitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+</resources>
